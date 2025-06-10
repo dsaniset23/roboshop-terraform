@@ -10,7 +10,7 @@ terraform {
 resource "aws_instance" "instance" {
   ami           = data.aws_ami.devops_instance.id
   instance_type = "t3.micro"
-  security_groups = [data.aws_security_group.allow_all.id]
+  vpc_security_group_ids = [data.aws_security_group.allow_all.id] //Mentioned security_groups instead of vpc_security_group_ids, security-groups has been deprecated in aws
   tags = {
     Name = var.component_name
   }
