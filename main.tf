@@ -1,21 +1,8 @@
 module "instances"{
-  for_each = var.instance
-  source = "./module"
+  for_each = var.instances
+  source = "./module/ec2"
+  app_port = each.key["app_port"]
   component_name = each.key
-}
-
-variable "instance" {
-  default = {
-    frontend = {}
-    mongodb = {}
-    catalogue = {}
-    redis = {}
-    user = {}
-    cart = {}
-    shipping = {}
-    mysql = {}
-    redditmq = {}
-    payment = {}
-    dispatch = {}
-  }
+  env = var.env
+  instance_type = each.key["instance_type"]
 }
