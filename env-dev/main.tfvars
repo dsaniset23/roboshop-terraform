@@ -15,7 +15,7 @@ db_instances = {
     app_port = 5671
     instance_type = "t3.micro"
   }
-  mongodb = {
+  mongo = {
     app_port = 27017
     instance_type = "t3.micro"
   }
