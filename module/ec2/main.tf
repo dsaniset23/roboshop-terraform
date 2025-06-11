@@ -45,7 +45,7 @@ resource "aws_route53_record" "record" {
   records = [aws_instance.instance.private_ip]
 }
 
-resource "Null_resource" "ansible_run" {
+resource "null_resource" "ansible_run" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
