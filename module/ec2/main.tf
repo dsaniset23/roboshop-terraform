@@ -37,4 +37,26 @@ resource "aws_instance" "instance" {
   }
 }
 
+resource "aws_route53_record" "record" {
+  zone_id = var.zone_id //Gave ami_id instead of zoneId
+  name    = "${var.component_name}.${var.domain_name}"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance.private_ip]
+}
 
+resource "Null_resource" "ansible_run" {
+  provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = "ec2-user"
+      password = "DevOps321"
+      host     = aws_instance.instance.private_ip
+    }
+
+    inline = [
+      "sudo labauto ansible",
+      "ansible-pull -i localhost, -U https://github.com/dsaniset/roboshop-ansible -e app_name=${var.component_name} -e env=${var.env} main.yml",
+    ]
+  }
+}
