@@ -12,7 +12,7 @@ db_instances = {
     instance_type = "t3.micro"
   }
   rabbitmq = {
-    app_port = 5671
+    app_port = 5672
     instance_type = "t3.micro"
   }
   mongodb = {
