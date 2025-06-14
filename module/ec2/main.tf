@@ -45,6 +45,10 @@ resource "aws_route53_record" "record" {
   records = [aws_instance.instance.private_ip]
 }
 
+provider "vault" {
+  address = "http://vault-internal.devops24.shop:8200"  # Use your actual Vault address
+}
+
 resource "null_resource" "ansible_run" {
   provisioner "remote-exec" {
     connection {
