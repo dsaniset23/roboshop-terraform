@@ -1,0 +1,10 @@
+name: Terraform destroying
+on: [workflow_dispatch]
+jobs:
+  destroying_terraform:
+    runs-on: self-hosted
+    steps:
+      - run: |
+          make dev-destroy token="$env:vault_token"
+        env:
+          vault_token: ${{ secrets.vault_token }}
