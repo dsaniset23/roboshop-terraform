@@ -59,7 +59,7 @@ resource "null_resource" "ansible_run" {
 
     inline = [
       "sudo labauto ansible",
-      "ansible-pull -i localhost, -U https://github.com/dsaniset/roboshop-ansible -e app_name=${var.component_name} -e env=${var.env} -e vault_token=${var.vault_token} main.yml",
+      "ansible-pull -i localhost, -U https://github.com/dsaniset23/roboshop-ansible -e app_name=${var.component_name} -e env=${var.env} -e vault_token=${var.vault_token} main.yml",
     ]
   }
 }
