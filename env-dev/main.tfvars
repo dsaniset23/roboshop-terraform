@@ -65,3 +65,33 @@ web_instances = {
     volume_size = 30
   }
 }
+
+eks ={
+  subnets_ids = ["subnet-013098480ed6e3c9d","subnet-00085eca56ba5313c"]
+  addon_name = {
+    vpc-cni = {}
+    kube-proxy = {}
+  }
+  access_entries = {
+    workstation = {
+      kubernetes_groups = []
+      principal_arn = "arn:aws:iam::202533520978:role/workstation-role"
+      type = "cluster"
+      policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      namespaces = []
+    }
+  }
+  node_groups = {
+    g1 = {
+      desired_size = 1
+      max_size     = 2
+      min_size     = 1
+      max_unavailable = 1
+      capacity_type = "SPOT"
+      instance_types = "t3.large"
+      disk_size = 30
+    }
+  }
+
+}
+
