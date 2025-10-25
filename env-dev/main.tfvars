@@ -67,7 +67,7 @@ web_instances = {
 }
 
 eks ={
-  subnets_ids = ["subnet-013098480ed6e3c9d","subnet-00085eca56ba5313c"]
+  subnets_ids = ["subnet-0eebaa34ada5e499b","subnet-0df9b20e1274e8ba5"]
   addon_name = {
     vpc-cni = {}
     kube-proxy = {}
