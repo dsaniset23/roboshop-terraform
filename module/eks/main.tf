@@ -63,7 +63,7 @@ resource "aws_eks_cluster" "main" {
   }
 
   access_config {
-    authentication_mode = "CONFIG_MAP"
+    authentication_mode = "API_AND_CONFIG_MAP"
   }
 
   depends_on = [
