@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.37.1"
+    }
+  }
+}
 # ------------------------------------------------------------------------------
 # 🧠 access_config in aws_eks_cluster:
 #
@@ -108,6 +116,17 @@ resource "aws_eks_node_group" "main" {
   ]
 }
 
+resource "null_resource" "update_kubeconfig" {
+  depends_on = ["aws_eks_cluster.main","aws_eks_node_group.main"]
+  provisioner "local-exec" {
+    command = <<EOF
+    aws eks update-kubeconfig --name=${aws_eks_cluster.main.name}
+    kubectl create namespace argocd
+    kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+EOF
+  }
+}
+
 resource "aws_eks_access_entry" "main" {
   for_each          = var.access_entries
   cluster_name      = aws_eks_cluster.main.name
@@ -116,7 +135,7 @@ resource "aws_eks_access_entry" "main" {
   type              = "STANDARD"
 }
 
-resource "aws_eks_access_policy_association" "example" {
+resource "aws_eks_access_policy_association" "main" {
   for_each      = var.access_entries
   cluster_name  = aws_eks_cluster.main.name
   policy_arn    = each.value["policy_arn"]
