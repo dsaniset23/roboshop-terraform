@@ -41,23 +41,23 @@ spec:
             - containerPort: 80
           env:
           - name: CATALOGUE_HOST
-            value: catalogue-dev.devops24.shop
+            value: catalogue-dev.kdevops23.online
           - name: CATALOGUE_PORT
             value: "8080"
           - name: USER_HOST
-            value: user-dev.devops24.shop
+            value: user-dev.kdevops23.online
           - name: USER_PORT
             value: "8080"
           - name: CART_HOST
-            value: cart-dev.devops24.shop
+            value: cart-dev.kdevops23.online
           - name: CART_PORT
             value: "8080"
           - name: SHIPPING_HOST
-            value: shipping-dev.devops24.shop
+            value: shipping-dev.kdevops23.online
           - name: SHIPPING_PORT
             value: "8080"
           - name: PAYMENT_HOST
-            value: payment-dev.devops24.shop
+            value: payment-dev.kdevops23.online
           - name: PAYMENT_PORT
             value: "8080"
 ---
@@ -101,7 +101,7 @@ spec:
             - name: MONGO
               value: "true"
             - name: MONGO_URL
-              value: "mongodb://mongodb-dev.devops24.shop:27017/catalogue"
+              value: "mongodb://mongodb-dev.kdevops23.online:27017/catalogue"
 
 ---
 
@@ -135,7 +135,7 @@ spec:
             - name: APP_GIT_URL
               value: https://github.com/roboshop-devops-project-v3/catalogue
             - name: DB_HOST
-              value: mongodb-dev.devops24.shop
+              value: mongodb-dev.kdevops23.online
             - name: SCHEMA_FILE
               value: db/master-data.js
       restartPolicy: Never
@@ -167,9 +167,9 @@ spec:
             - name: MONGO
               value: "true"
             - name: MONGO_URL
-              value: "mongodb://mongodb-dev.devops24.shop:27017/users"
+              value: "mongodb://mongodb-dev.kdevops23.online:27017/users"
             - name: REDIS_URL
-              value: "redis://redis-dev.devops24.shop:6379"
+              value: "redis://redis-dev.kdevops23.online:6379"
 
 ---
 
@@ -210,11 +210,11 @@ spec:
             - containerPort: 8080
           env:
             - name: CATALOGUE_HOST
-              value: catalogue-dev.devops24.shop
+              value: catalogue-dev.kdevops23.online
             - name: CATALOGUE_PORT
               value: "8080"
             - name: REDIS_HOST
-              value: redis-dev.devops24.shop
+              value: redis-dev.kdevops23.online
 
 ---
 
@@ -257,7 +257,7 @@ spec:
             - name: CART_ENDPOINT
               value: "cart:8080"
             - name: DB_HOST
-              value: mysql-dev.devops24.shop
+              value: mysql-dev.kdevops23.online
 ---
 
 apiVersion: v1
@@ -290,7 +290,7 @@ spec:
             - name: APP_GIT_URL
               value: https://github.com/roboshop-devops-project-v3/shipping
             - name: DB_HOST
-              value: mysql-dev.devops24.shop
+              value: mysql-dev.kdevops23.online
             - name: DB_USER
               value: root
             - name: DB_PASS
@@ -317,7 +317,7 @@ spec:
             - name: APP_GIT_URL
               value: https://github.com/roboshop-devops-project-v3/shipping
             - name: DB_HOST
-              value: mysql-dev.devops24.shop
+              value: mysql-dev.kdevops23.online
             - name: DB_USER
               value: root
             - name: DB_PASS
@@ -344,7 +344,7 @@ spec:
             - name: APP_GIT_URL
               value: https://github.com/roboshop-devops-project-v3/shipping
             - name: DB_HOST
-              value: mysql-dev.devops24.shop
+              value: mysql-dev.kdevops23.online
             - name: DB_USER
               value: root
             - name: DB_PASS
@@ -377,15 +377,15 @@ spec:
             - containerPort: 8080
           env:
             - name: CART_HOST
-              value: cart-dev.devops24.shop
+              value: cart-dev.kdevops23.online
             - name: CART_PORT
               value: "8080"
             - name: USER_HOST
-              value: user-dev.devops24.shop
+              value: user-dev.kdevops23.online
             - name: USER_PORT
               value: "8080"
             - name: AMQP_HOST
-              value: rabbitmq-dev.devops24.shop
+              value: rabbitmq-dev.kdevops23.online
             - name: AMQP_USER
               value: roboshop
             - name: AMQP_PASS

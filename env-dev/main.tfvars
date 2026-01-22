@@ -1,5 +1,5 @@
 env = "dev"
-domain_name = "devops24.shop"
+domain_name = "kdevops23.online"
 zone_id = "Z09304471M1HNSZIX3178"
 
 db_instances = {
