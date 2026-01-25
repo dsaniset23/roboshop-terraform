@@ -1,6 +1,6 @@
 env = "dev"
 domain_name = "kdevops23.online"
-zone_id = "Z09304471M1HNSZIX3178"
+zone_id = "Z1024318Z55DK5FV70OA"
 
 db_instances = {
   mysql = {
