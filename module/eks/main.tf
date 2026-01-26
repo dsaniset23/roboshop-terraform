@@ -117,7 +117,7 @@ resource "aws_eks_node_group" "main" {
 }
 
 resource "null_resource" "update_kubeconfig" {
-  depends_on = ["aws_eks_cluster.main","aws_eks_node_group.main"]
+  depends_on = [aws_eks_cluster.main,aws_eks_node_group.main]
   provisioner "local-exec" {
     command = <<EOF
     aws eks update-kubeconfig --name=${aws_eks_cluster.main.name}
