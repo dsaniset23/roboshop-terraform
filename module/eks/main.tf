@@ -93,7 +93,7 @@ resource "aws_eks_node_group" "main" {
   node_group_name = each.key
   node_role_arn   = aws_iam_role.node-group-role.arn
   subnet_ids      = var.subnets_ids
-  # capacity_type = each.value["capacity_type"]
+  capacity_type = each.value["capacity_type"]
   instance_types = tolist(each.value["instance_types"])
   disk_size = each.value["disk_size"]
 
