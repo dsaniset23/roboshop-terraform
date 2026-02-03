@@ -80,6 +80,13 @@ eks ={
       policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
       namespaces = []
     }
+    gh-runner = {
+      kubernetes_groups = []
+      principal_arn = "arn:aws:iam::572282991444:role/github-runner-role"
+      type = "cluster"
+      policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      namespaces = []
+    }
   }
   node_groups = {
     g1 = {
