@@ -120,9 +120,9 @@ resource "null_resource" "update_kubeconfig" {
   depends_on = [aws_eks_cluster.main,aws_eks_node_group.main, aws_eks_access_policy_association.main]
   provisioner "local-exec" {
     command = <<EOF
+    aws eks update-kubeconfig --name=${aws_eks_cluster.main.name}
     aws sts get-caller-identity
     kubectl auth can-i create namespace --all-namespaces
-    aws eks update-kubeconfig --name=${aws_eks_cluster.main.name}
     kubectl create namespace argocd
     kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 EOF
