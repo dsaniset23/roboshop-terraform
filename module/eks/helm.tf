@@ -13,6 +13,6 @@ resource "helm_release" "argocd" {
   create_namespace = true
   wait             = false
   values = [
-    file("config/argo_config.yml")
+    file("${path.module}/config/argo_config.yml")
   ]
 }
