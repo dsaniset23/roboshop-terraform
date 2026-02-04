@@ -12,4 +12,7 @@ resource "helm_release" "argocd" {
   chart            = "argo-cd"
   create_namespace = true
   wait             = false
+  values = [
+    file("./config/argo_config.yml")
+  ]
 }
