@@ -95,7 +95,7 @@ eks ={
       min_size     = 1
       max_unavailable = 1
       capacity_type = "SPOT"
-      instance_types = ["t3.large"]
+      instance_types = ["t3.xlarge"]
       disk_size = 30
     }
   }

@@ -107,6 +107,10 @@ resource "aws_eks_node_group" "main" {
     max_unavailable = each.value["max_unavailable"]
   }
 
+  tags = {
+    Name = "Roboshop-${each.key}"
+  }
+
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
   depends_on = [
